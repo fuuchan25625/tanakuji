@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ジミンちゃん運勢占い</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      text-align: center;
+      background: #000;
+      color: #fff;
+      font-family: sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    #slot {
+      width: 80vw;
+      max-width: 400px;
+      aspect-ratio: 1 / 1;
+      margin: 40px auto;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(255,255,255,0.3);
+    }
+    #slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    button {
+      font-size: 20px;
+      padding: 12px 32px;
+      margin: 10px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+    }
+    .start { background: #ffd900; }
+    .stop  { background: #ff6b6b; color: #fff; }
+  </style>
+</head>
+<body>
+
+  <h1>ジミンちゃんの写真くじ</h1>
+
+  <div id="slot">
+    <img id="image" src="images/img1.jpg">
+  </div>
+
+  <button class="start" onclick="startGame()">スタート</button>
+  <button class="stop" onclick="stopGame()">ストップ</button>
+
+  <script>
+    const images = [
+      "1.jpg",
+      "2.jpg",
+      "3.jpg",
+      "4.jpg",
+      "5.jpg",
+      "6.jpg",
+      "7.jpg",
+      "8.jpg",
+      "9.jpg",
+      "10.jpg",
+      "11.jpg",
+      "12.jpg",
+      "13.jpg",
+      "14.jpg",
+      "15.jpg",
+      "16.jpg",
+      "17.jpg",
+      "18.jpg",
+      "19.jpg",
+      "20.jpg",
+      "21.jpg",
+      "22.jpg",
+      "23.jpg",
+      "24.jpg"
+    ];
+
+    let timer;
+
+    function startGame() {
+      timer = setInterval(() => {
+        const random = Math.floor(Math.random() * images.length);
+        document.getElementById("image").src = images[random];
+      }, 60); // ← 小さくすると高速
+    }
+
+    function stopGame() {
+      clearInterval(timer);
+    }
+  </script>
+
+</body>
+</html>
+
